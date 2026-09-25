@@ -10,9 +10,13 @@
 import { writeFileSync } from 'node:fs';
 import { CORE } from './scales.mjs';
 import { ROLES, LADDERS, MARKET, CHART, TYPE, RADIUS, SPACING, DENSITY, GAPS, GATES, SNAP } from './tokens.config.mjs';
-import { contrast } from './color.mjs';
+import { contrast, toAlpha } from './color.mjs';
 
 const step = (scale, theme, n) => CORE[scale][theme][n - 1];
+
+// Alphas are generated for the brand and neutral scales, which are the two
+// that appear under arbitrary content — overlays, hovers, the tick flash.
+const ALPHA_SCALES = ['main', 'parasol'];
 const lines = [];
 const out = (s = '') => lines.push(s);
 const snapLog = [];
@@ -61,8 +65,24 @@ function colorTokens(theme) {
     t.push([`--bg-${dir}-subtle`, m[dir].subtle]);
     t.push([`--border-${dir}`, m[dir].border]);
   }
-  t.push(['--flash-up', m.flashUp]);
-  t.push(['--flash-down', m.flashDown]);
+  // The tick flash is an alpha by necessity — it sits on whatever the row is.
+  t.push(['--flash-up', toAlpha(step('success', theme, theme === 'light' ? 4 : 4), step('parasol', theme, 1)).css]);
+  t.push(['--flash-down', toAlpha(step('error', theme, theme === 'light' ? 4 : 4), step('parasol', theme, 1)).css]);
+
+  // Alpha scales. Derived, not authored: each is the translucent colour that
+  // composites back to its solid exactly over that scale's own step 1, at the
+  // lowest alpha that can do it. Use these when the background underneath is
+  // not known — overlays, hover states on arbitrary surfaces, the tick flash.
+  for (const scale of ALPHA_SCALES) {
+    const bg = step(scale, theme, 1);
+    for (let n = 1; n <= 12; n++) {
+      t.push([`--${scale}-a${n}`, toAlpha(step(scale, theme, n), bg).css]);
+    }
+  }
+  // Semantic alphas.
+  t.push(['--overlay', toAlpha(step('parasol', theme, 11), step('parasol', theme, 1)).css]);
+  t.push(['--scrim', theme === 'light' ? 'rgba(36, 30, 30, 0.45)' : 'rgba(0, 0, 0, 0.62)']);
+  t.push(['--focus-ring', toAlpha(step('main', theme, 8), step('parasol', theme, 1)).css]);
 
   CHART.categorical[theme].forEach((c, i) => t.push([`--chart-${i + 1}`, c]));
   CHART.sequential[theme].forEach((c, i) => t.push([`--chart-seq-${i + 1}`, c]));

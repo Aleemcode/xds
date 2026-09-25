@@ -1,7 +1,13 @@
 'use client';
 import * as React from 'react';
+import { Icon } from '@afex/xds-react';
 
 type Mode = 'system' | 'light' | 'dark';
+const MODES: { id: Mode; label: string; Glyph: typeof Icon.Sun }[] = [
+  { id: 'system', label: 'System', Glyph: Icon.Monitor },
+  { id: 'light', label: 'Light', Glyph: Icon.Sun },
+  { id: 'dark', label: 'Dark', Glyph: Icon.Moon },
+];
 
 export function ThemeToggle() {
   const [mode, setMode] = React.useState<Mode>('system');
@@ -9,8 +15,7 @@ export function ThemeToggle() {
   React.useEffect(() => {
     let saved: Mode = 'system';
     try { saved = (localStorage.getItem('xds-theme') as Mode) || 'system'; } catch {}
-    apply(saved);
-    setMode(saved);
+    apply(saved); setMode(saved);
   }, []);
 
   function apply(m: Mode) {
@@ -20,15 +25,12 @@ export function ThemeToggle() {
     try { localStorage.setItem('xds-theme', m); } catch {}
   }
 
-  function pick(m: Mode) { setMode(m); apply(m); }
-
   return (
-    <div role="group" aria-label="Theme" style={{ display: 'flex', gap: 'var(--space-1)' }}>
-      {(['system', 'light', 'dark'] as Mode[]).map(m => (
-        <button key={m} type="button"
-          className={`xds-btn xds-btn--${mode === m ? 'secondary' : 'ghost'} xds-btn--sm`}
-          aria-pressed={mode === m} onClick={() => pick(m)}>
-          {m}
+    <div className="themetoggle" role="group" aria-label="Theme">
+      {MODES.map(({ id, label, Glyph }) => (
+        <button key={id} type="button" aria-pressed={mode === id} title={label}
+                onClick={() => { setMode(id); apply(id); }}>
+          <Glyph size="sm" variant={mode === id ? 'Bold' : 'Linear'} label={label} />
         </button>
       ))}
     </div>

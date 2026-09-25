@@ -1,4 +1,4 @@
-import { Badge } from '@afex/xds-react';
+import { Badge, Icon } from '@afex/xds-react';
 export const metadata = { title: 'Badge' };
 export default function Page() {
   return (
@@ -10,11 +10,12 @@ export default function Page() {
       </div>
       <div className="demo">
         <Badge>Draft</Badge>
-        <Badge tone="brand">AFEX</Badge>
-        <Badge tone="success">Settled</Badge>
-        <Badge tone="info">Delayed 15m</Badge>
-        <Badge tone="warning">Stale</Badge>
-        <Badge tone="danger">Failed</Badge>
+        <Badge tone="brand" icon={<Icon.Grade size="xs" />}>Grade A</Badge>
+        <Badge tone="success" icon={<Icon.Success size="xs" />}>Settled</Badge>
+        <Badge tone="info" icon={<Icon.Clock size="xs" />}>Delayed 15m</Badge>
+        <Badge tone="warning" icon={<Icon.Warning size="xs" />}>Stale</Badge>
+        <Badge tone="danger" icon={<Icon.Danger size="xs" />}>Failed</Badge>
+        <Badge icon={<Icon.Warehouse size="xs" />}>Kaduna</Badge>
       </div>
       <div className="prose">
         <pre><code>{`<Badge tone="warning">Stale</Badge>`}</code></pre>

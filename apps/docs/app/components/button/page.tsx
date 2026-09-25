@@ -1,4 +1,4 @@
-import { Button } from '@afex/xds-react';
+import { Button, Icon } from '@afex/xds-react';
 export const metadata = { title: 'Button' };
 export default function Page() {
   return (
@@ -9,15 +9,17 @@ export default function Page() {
         <p className="lede">Four variants. The primary fill and its label colour are both generated, because a fill that cannot carry its own label is not a fill.</p>
       </div>
       <div className="demo">
-        <Button variant="primary">Place order</Button>
+        <Button variant="primary" icon={<Icon.Check size="sm" />}>Place order</Button>
         <Button variant="secondary">Cancel</Button>
-        <Button variant="ghost">View details</Button>
-        <Button variant="danger">Delete</Button>
-        <Button variant="primary" disabled>Disabled</Button>
-        <Button variant="secondary" size="sm">Small</Button>
+        <Button variant="ghost" trailing={<Icon.External size="sm" />}>View contract</Button>
+        <Button variant="danger" icon={<Icon.Close size="sm" />}>Cancel order</Button>
+        <Button variant="primary" disabled icon={<Icon.Wallet size="sm" />}>Insufficient balance</Button>
+        <Button variant="secondary" size="sm" icon={<Icon.Download size="xs" />}>Export</Button>
+        <Button variant="ghost" iconOnly aria-label="Refresh prices" icon={<Icon.Refresh size="sm" />} />
+        <Button variant="secondary" iconOnly aria-label="Filter" icon={<Icon.Filter size="sm" />} />
       </div>
       <div className="prose">
-        <pre><code>{`import { Button } from '@afex/xds-react';
+        <pre><code>{`import { Button, Icon } from '@afex/xds-react';
 
 <Button variant="primary">Place order</Button>
 <Button variant="danger" size="sm">Delete</Button>`}</code></pre>

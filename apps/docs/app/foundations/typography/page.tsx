@@ -35,9 +35,9 @@ export default function Typography() {
           the baseline at cap height, not hopping above and below it.
         </p>
         <p>
-          Each block stacks <code>1111111</code> over <code>0000000</code>. If the
-          two rows are the same length, the face has tabular figures. If the right
-          edge is ragged, a price column set in it will wander.
+          Each block stacks <code>1111111</code> over <code>0000000</code>. Same
+          length means the face is tabular. A ragged right edge means a price
+          column set in it will wander.
         </p>
       </div>
 
@@ -53,16 +53,6 @@ export default function Typography() {
         ))}
       </div>
 
-      <div className="note note--warn">
-        <p>
-          <strong>This decision is still open.</strong> If Switzer&apos;s two rows do
-          not match, the answer is not to abandon Switzer — it is to pair a
-          numeric face for the data layer and keep Switzer everywhere else. A
-          normal split, and a mono is wanted anyway for codes and timestamps.
-          Until it is settled, <code>--font-numeric</code> falls through to a
-          stack that is tabular on every platform, so nothing breaks.
-        </p>
-      </div>
 
       <div className="prose"><h2>The scale</h2></div>
       <table className="spec">
@@ -84,10 +74,10 @@ export default function Typography() {
       <div className="prose">
         <h2>Numbers</h2>
         <p>
-          Set <code>font-variant-numeric: tabular-nums</code> on the column, never
-          on the value. Right-align, fix the decimal places per column by
-          instrument rather than by value, and use a true minus <code>−</code> —
-          it aligns, the hyphen does not.
+          <code>font-variant-numeric: tabular-nums</code> goes on the column,
+          never the value. Numbers right-align. Decimal places are fixed per
+          column by instrument, not by value. Negatives use a true minus{' '}
+          <code>−</code>, which shares a digit&apos;s width; a hyphen does not.
         </p>
       </div>
       <div className="demo demo--block">

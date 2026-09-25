@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Icon } from './icons';
 
 /**
  * Market direction indicator.
@@ -12,24 +13,24 @@ import * as React from 'react';
 export interface ChangeProps {
   /** Signed value. null means no observation — renders an em dash, never 0%. */
   value: number | null;
-  /** 'percent' appends %, 'absolute' prefixes the unit. */
   format?: 'percent' | 'absolute';
   unit?: string;
   decimals?: number;
 }
+
 export function Change({ value, format = 'percent', unit = '', decimals = 2 }: ChangeProps) {
   if (value === null || Number.isNaN(value)) {
     return <span className="xds-change xds-change--flat" aria-label="no observation">—</span>;
   }
   const dir = value > 0 ? 'up' : value < 0 ? 'down' : 'flat';
-  const glyph = dir === 'up' ? '▲' : dir === 'down' ? '▼' : '—';
+  const Glyph = dir === 'up' ? Icon.Up : dir === 'down' ? Icon.Down : Icon.Flat;
   const sign = value > 0 ? '+' : value < 0 ? '−' : '';
   const magnitude = Math.abs(value).toFixed(decimals);
   const body = format === 'percent' ? `${magnitude}%` : `${unit}${magnitude}`;
   const label = `${dir === 'up' ? 'up' : dir === 'down' ? 'down' : 'unchanged'} ${magnitude}${format === 'percent' ? ' percent' : ''}`;
   return (
     <span className={`xds-change xds-change--${dir}`} aria-label={label}>
-      <span className="xds-change__glyph" aria-hidden="true">{glyph}</span>
+      <Glyph size="xs" />
       <span>{sign}{body}</span>
     </span>
   );

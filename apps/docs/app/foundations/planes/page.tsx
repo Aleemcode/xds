@@ -1,5 +1,10 @@
 export const metadata = { title: 'The four planes' };
 
+// xds-eval-disable XDS-03 — this page shows the market plane's own colours as
+// the subject of the page. It renders no value, so there is nothing to encode
+// twice.
+// xds-eval-disable XDS-10 — the inline background is a variable holding token
+// references, which the checker cannot see through.
 const PLANES = [
   { name: 'Brand', band: 'var(--bg-brand-solid)', owns: 'Fills, primary actions, links, the mark itself.', never: 'never a data value' },
   { name: 'System', band: 'linear-gradient(90deg,var(--bg-success-solid),var(--bg-info-solid),var(--bg-warning-solid),var(--bg-danger-solid))', owns: 'Interface state — success, info, warning, danger.', never: 'never a price' },
@@ -19,17 +24,15 @@ export default function Planes() {
           of it.
         </p>
 
-        <h2>The problem</h2>
+        <h2>Why planes</h2>
         <p>
-          AFEX&apos;s brand is red. A commodity exchange shows a falling price in red.
-          Those two facts fight, and the measurement is unambiguous: the brand red
-          <code>#E1261C</code> and the error red <code>#E5484D</code> are{' '}
-          <strong>5.3 apart</strong> in OKLab, against a floor of roughly 15 for a
-          full-colour reader. Under deuteranopia it falls to 4.4.
+          The AFEX brand is red. A falling price is red. On a dense board those
+          two reds are not far enough apart for anyone to separate reliably, and
+          for a colour-blind trader they are the same colour.
         </p>
         <p>
-          There is no palette fix. They are the same red, and asking a trader to
-          distinguish them on a dense board is asking them to make a mistake.
+          A palette cannot fix that, because the two reds are genuinely the same
+          red. What fixes it is never putting them in the same place.
         </p>
 
         <h2>The rule</h2>
@@ -56,15 +59,15 @@ export default function Planes() {
       <div className="prose">
         <h2>What it costs</h2>
         <p>
-          Reserving four planes uses up most of the hue wheel. Once brand red,
-          four status hues and a green/red market pair are spoken for, only the
-          arc from <strong>204° to 330°</strong> is free — cyan, through blue, to
-          magenta. That is why the chart palette is six colours and not eight, and
-          why it separates on lightness as well as hue.
+          Four planes take most of the hue wheel. Brand holds red, the system
+          holds four status hues, the market holds a green and a red — and what
+          is left for chart series is a narrow arc of cyan through magenta.
         </p>
         <p>
-          That is a real constraint rather than a stylistic preference, and it is
-          worth knowing before someone asks for a seventh series colour.
+          That is why the chart palette is six colours rather than eight, and
+          why those six separate on lightness as well as hue. It is a constraint
+          of the system, not a preference, and it is the answer when someone
+          asks for a seventh.
         </p>
       </div>
     </main>

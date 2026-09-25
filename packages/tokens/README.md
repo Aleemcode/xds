@@ -112,8 +112,9 @@ facet into small multiples. That is what a market terminal does anyway.
 ## What is deliberately not in here
 
 The **X-Additional scales** (Bronze, Cyan, Purple, Jade, Tomato, Ruby, Pink,
-Amber, and the never-supplied Mint and Sky). They are not Radix scales. Each
-one's light column is a dark scale printed in reverse, so step 1 is a mid-tint
+Amber, and the never-supplied Mint and Sky). They do not satisfy the step
+contract. Each one's light column is a dark scale printed in reverse, so step 1
+is a mid-tint
 around lightness 90 rather than an app background, and none of the step meanings
 survive. Two consequences worth naming:
 

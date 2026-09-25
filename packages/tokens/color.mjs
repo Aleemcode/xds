@@ -109,3 +109,36 @@ export function oklch(L, C, H) {
   const rgb = oklab2rgb(L, lo * Math.cos(rad), lo * Math.sin(rad));
   return rgb2hex(rgb.map(toSrgb));
 }
+
+// ---- Alpha derivation ----------------------------------------------------
+// Given a solid colour C that sits on background B, find the translucent
+// colour A and the smallest alpha a such that compositing A over B reproduces
+// C exactly. Minimising alpha is the point: the lower it is, the better the
+// token survives being placed on a background other than the one it was
+// derived against, which is the whole reason alphas exist.
+//
+//   a·A + (1−a)·B = C   →   solve per channel, take the largest a required.
+export function toAlpha(hexC, hexB) {
+  const C = hex2rgb(hexC), B = hex2rgb(hexB);
+  let a = 0;
+  for (let i = 0; i < 3; i++) {
+    if (C[i] === B[i]) continue;
+    const bound = C[i] < B[i] ? 0 : 255;          // the channel is heading to black or white
+    const need = (C[i] - B[i]) / (bound - B[i]);
+    if (need > a) a = need;
+  }
+  a = Math.ceil(a * 1000) / 1000;                  // 3dp, and never round down
+  if (a <= 0) return { hex: '#000000', alpha: 0, css: 'rgba(0, 0, 0, 0)' };
+  const A = C.map((c, i) => (c - B[i] * (1 - a)) / a);
+  const r = A.map(v => Math.round(Math.max(0, Math.min(255, v))));
+  return { hex: rgb2hex(r), alpha: a, css: `rgba(${r[0]}, ${r[1]}, ${r[2]}, ${a})` };
+}
+
+/** Round-trip check: composite an alpha token back over its background. */
+export function composite(css, hexB) {
+  const m = css.match(/rgba?\(([^)]+)\)/);
+  if (!m) return css;
+  const [r, g, b, a = 1] = m[1].split(',').map(s => parseFloat(s.trim()));
+  const B = hex2rgb(hexB);
+  return rgb2hex([r, g, b].map((c, i) => c * a + B[i] * (1 - a)));
+}

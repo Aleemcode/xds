@@ -10,8 +10,9 @@
   "scripts": {
     "tokens": "npm run tokens -w @afex/xds-tokens",
     "audit": "npm run audit -w @afex/xds-tokens",
+    "eval": "node packages/eval/eval.mjs .",
     "dev": "npm run dev -w @afex/xds-docs",
-    "build": "npm run tokens && npm run audit -- --quiet && npm run build -w @afex/xds-docs"
+    "build": "npm run tokens && npm run audit -- --quiet && npm run eval && npm run build -w @afex/xds-docs"
   },
   "engines": {
     "node": ">=20"

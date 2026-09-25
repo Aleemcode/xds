@@ -1,9 +1,11 @@
 // AFEX raw colour scales, transcribed from the design system screenshots (21 Sep 2026).
-// Steps are 1..12 as published. Step 9 is held constant across themes on every
-// correctly-built scale — that is the Radix contract and it holds on all six below.
+// Steps are 1..12 as published, and each step has one job — the step contract
+// documented on the colour page. Two properties identify a correctly-built
+// 12-step scale: lightness falls monotonically from step 1 to step 12 in the
+// light column, and step 9, the solid fill, is the same colour in both themes.
 //
-// PROVENANCE: the six scales in CORE are genuine Radix-shaped 12-step scales.
-// The scales in ADDITIONAL_RAW are NOT — see notes at the bottom of this file.
+// PROVENANCE: the six scales in CORE satisfy both. The scales in
+// ADDITIONAL_RAW do not — see the notes at the bottom of this file.
 
 export const CORE = {
   // Brand. Step 9 is the AFEX red.
@@ -49,14 +51,14 @@ export const CORE = {
 // The X-Additional set, exactly as published.
 //
 // THESE ARE BROKEN, and in a precisely diagnosable way: each one's `light`
-// column is its own DARK scale printed in reverse. Verified on every scale
-// where a canonical anchor exists — e.g. Tomato light[3] === Tomato dark[8]
-// === #E54D2E, the real Radix Tomato step 9.
+// column is its own DARK scale printed in reverse. The reversal shows wherever
+// the same colour appears in both columns at mirrored positions — Tomato
+// light[3] === Tomato dark[8] === #E54D2E.
 //
-// Consequences: light step 1 is a mid-tint rather than an app background, so
-// none of the Radix step meanings survive in light mode; Ruby's dark column is
-// byte-identical to Error's; and Amber is Warning under another name
-// (Amber light[3] === Warning dark[8] === #FFC53D).
+// Consequences: light step 1 lands near lightness 90 rather than 99, so it is
+// a mid-tint and not an app background, and none of the step meanings survive
+// in light mode; Ruby's dark column is byte-identical to Error's; and Amber is
+// Warning under another name (Amber light[3] === Warning dark[8] === #FFC53D).
 //
 // They are kept here for reference and for the audit, and are NOT consumed by
 // the generator. The chart palette is built from verified step-9 solids instead.
@@ -81,9 +83,9 @@ export const ADDITIONAL_RAW = {
   // sky:  never supplied
 };
 
-// Verified step-9 solids. On a correct Radix scale step 9 is theme-constant,
-// which is why these are single values rather than a light/dark pair. Every
-// entry is present verbatim in the published data.
+// Verified step-9 solids. Step 9 is theme-constant, which is why these are
+// single values rather than a light/dark pair. Every entry is present verbatim
+// in the published data.
 export const SOLID_9 = {
   main:        '#E1261C',
   error:       '#E5484D',
