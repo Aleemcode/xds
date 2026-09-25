@@ -1,0 +1,353 @@
+/* AFEX design system tokens.
+ * GENERATED FILE — do not edit. Change tokens.config.mjs and re-run generate.mjs.
+ * Generated 2026-09-23.
+ *
+ * Open gaps carried into this build:
+ *   - Mint and Sky scales were never supplied.
+ *   - Cyan dark column was never supplied.
+ *   - Type scale was never supplied — the scale above is proposed, not confirmed.
+ *   - Switzer tabular-figures test result outstanding; numeric face unresolved.
+ *   - Switzer licence is ITF Free Font License, not MIT — bundling rights unconfirmed.
+ *   - Elevation/shadow, motion and focus-ring styling await the moodboard.
+ */
+
+/* Light is the base. Every token is declared here and only redefined,
+   never introduced, in the theme blocks below. */
+:root {
+  --bg-page: #FEFDFD;
+  --bg-raised: #FAF9F9;
+  --bg-sunken: #F2EFEF;
+  --bg-subtle: #F2EFEF;
+  --bg-subtle-hover: #EBE7E7;
+  --bg-subtle-active: #E4E0E0;
+  --border: #DDD8D8;
+  --border-strong: #D3CDCD;
+  --bg-solid: #948A8A;
+  --text-on-solid: #241E1E;
+  --bg-solid-hover: #897F7F;
+  --text-muted: #686161;
+  --text-primary: #241E1E;
+  --bg-brand-subtle: #FFEBE7;
+  --bg-brand-subtle-hover: #FFDBD4;
+  --bg-brand-subtle-active: #FFCBC2;
+  --border-brand: #FFBBAF;
+  --border-brand-strong: #FBA698;
+  --bg-brand-solid: #E1261C;
+  --text-on-brand-solid: #FFFFFF;
+  --bg-brand-solid-hover: #D20000;
+  --text-brand: #B7100A;
+  --text-brand-strong: #641D16;
+  --bg-success-subtle: #E4F7EC;
+  --border-success: #ABDEC1;
+  --bg-success-solid: #00834D;
+  --text-on-success-solid: #FFFFFF;
+  --text-success: #00814F;
+  --bg-info-subtle: #E6F4FE;
+  --border-info: #ACD8FC;
+  --bg-info-solid: #0090FF;
+  --text-on-info-solid: #241E1E;
+  --text-info: #0D74CE;
+  --bg-warning-subtle: #FFF7C2;
+  --border-warning: #F3D673;
+  --bg-warning-solid: #FFC53D;
+  --text-on-warning-solid: #241E1E;
+  --text-warning: #AB6400;
+  --bg-danger-subtle: #FEEBEC;
+  --border-danger: #FDBDBE;
+  --bg-danger-solid: #CE2C31;
+  --text-on-danger-solid: #FFFFFF;
+  --text-danger: #CE2C31;
+  --text-up: #00814F;
+  --bg-up-subtle: #F4FBF7;
+  --border-up: #ABDEC1;
+  --text-down: #CE2C31;
+  --bg-down-subtle: #FFF7F7;
+  --border-down: #FDBDBE;
+  --text-flat: #686161;
+  --bg-flat-subtle: #F2EFEF;
+  --border-flat: #DDD8D8;
+  --flash-up: rgba(12, 143, 92, 0.16);
+  --flash-down: rgba(206, 44, 49, 0.16);
+  --chart-1: #006870;
+  --chart-2: #009DCC;
+  --chart-3: #313290;
+  --chart-4: #2076C9;
+  --chart-5: #00848E;
+  --chart-6: #005BA7;
+  --chart-seq-1: #D2E7FF;
+  --chart-seq-2: #A4CFFF;
+  --chart-seq-3: #84B2E6;
+  --chart-seq-4: #6996C8;
+  --chart-seq-5: #4E7AAB;
+  --chart-seq-6: #35608F;
+  --chart-seq-7: #1B4773;
+  --chart-div-1: #9A3936;
+  --chart-div-2: #C8635D;
+  --chart-div-3: #FF958D;
+  --chart-div-4: #EEEAEB;
+  --chart-div-5: #66D097;
+  --chart-div-6: #2B9D67;
+  --chart-div-7: #007044;
+  --chart-muted: #C1B9B9;
+
+  /* type */
+  --font-sans: 'Switzer', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-numeric: 'Switzer Tabular', 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --text-2xs-size: 0.6875rem;
+  --text-2xs-line: 1.rem;
+  --text-xs-size: 0.75rem;
+  --text-xs-line: 1.125rem;
+  --text-sm-size: 0.8125rem;
+  --text-sm-line: 1.25rem;
+  --text-base-size: 1.rem;
+  --text-base-line: 1.5rem;
+  --text-lg-size: 1.1875rem;
+  --text-lg-line: 1.75rem;
+  --text-xl-size: 1.4375rem;
+  --text-xl-line: 2.rem;
+  --text-2xl-size: 1.75rem;
+  --text-2xl-line: 2.25rem;
+  --text-3xl-size: 2.0625rem;
+  --text-3xl-line: 2.625rem;
+  --text-4xl-size: 2.5rem;
+  --text-4xl-line: 3.rem;
+  --text-5xl-size: 3.rem;
+  --text-5xl-line: 3.5rem;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --tracking-tight: -0.018em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.06em;
+  --tracking-caps: 0.12em;
+
+  /* radius */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
+  --radius-full: 9999px;
+
+  /* spacing */
+  --space-0: 0px;
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+
+  /* table density */
+  --row-comfortable-block: 14px;
+  --row-comfortable-inline: 16px;
+  --row-comfortable-size: 0.9375rem;
+  --row-compact-block: 11px;
+  --row-compact-inline: 12px;
+  --row-compact-size: 0.875rem;
+  --row-dense-block: 7px;
+  --row-dense-inline: 9px;
+  --row-dense-size: 0.8125rem;
+  --touch-min: 44px;
+}
+
+/* System dark. Guarded so an explicit light choice still wins. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-page: #111111;
+    --bg-raised: #1A1919;
+    --bg-sunken: #232222;
+    --bg-subtle: #232222;
+    --bg-subtle-hover: #2A2929;
+    --bg-subtle-active: #323131;
+    --border: #3B3A3A;
+    --border-strong: #4A4848;
+    --bg-solid: #706D6D;
+    --text-on-solid: #FFFFFF;
+    --bg-solid-hover: #7E7B7B;
+    --text-muted: #B6B3B3;
+    --text-primary: #EEEEEE;
+    --bg-brand-subtle: #3C130E;
+    --bg-brand-subtle-hover: #530D08;
+    --bg-brand-subtle-active: #64130D;
+    --border-brand: #752119;
+    --border-brand-strong: #8E3228;
+    --bg-brand-solid: #E1261C;
+    --text-on-brand-solid: #FFFFFF;
+    --bg-brand-solid-hover: #D10504;
+    --text-brand: #FF8E7C;
+    --text-brand-strong: #FFD1C9;
+    --bg-success-subtle: #092E1D;
+    --border-success: #005B37;
+    --bg-success-solid: #00814F;
+    --text-on-success-solid: #FFFFFF;
+    --text-success: #64D199;
+    --bg-info-subtle: #0D2847;
+    --border-info: #104D87;
+    --bg-info-solid: #0090FF;
+    --text-on-info-solid: #241E1E;
+    --text-info: #70B8FF;
+    --bg-warning-subtle: #302008;
+    --border-warning: #5C3D05;
+    --bg-warning-solid: #FFC53D;
+    --text-on-warning-solid: #241E1E;
+    --text-warning: #FFCA16;
+    --bg-danger-subtle: #3B1219;
+    --border-danger: #72232D;
+    --bg-danger-solid: #EC5D5E;
+    --text-on-danger-solid: #241E1E;
+    --text-danger: #FF9592;
+    --text-up: #64D199;
+    --bg-up-subtle: #0A130E;
+    --border-up: #005B37;
+    --text-down: #E5484D;
+    --bg-down-subtle: #191111;
+    --border-down: #72232D;
+    --text-flat: #B6B3B3;
+    --bg-flat-subtle: #232222;
+    --border-flat: #3B3A3A;
+    --flash-up: rgba(100, 209, 153, 0.20);
+    --flash-down: rgba(229, 72, 77, 0.20);
+    --chart-1: #0095A0;
+    --chart-2: #40CBFF;
+    --chart-3: #545CBD;
+    --chart-4: #51A2F8;
+    --chart-5: #00B3C0;
+    --chart-6: #3386D9;
+    --chart-seq-1: #002E59;
+    --chart-seq-2: #1E4976;
+    --chart-seq-3: #3A6695;
+    --chart-seq-4: #5783B5;
+    --chart-seq-5: #75A2D5;
+    --chart-seq-6: #93C2F6;
+    --chart-seq-7: #C7E1FF;
+    --chart-div-1: #FF958D;
+    --chart-div-2: #C8635D;
+    --chart-div-3: #8F4340;
+    --chart-div-4: #2A2929;
+    --chart-div-5: #1F6B52;
+    --chart-div-6: #2B9D67;
+    --chart-div-7: #66D097;
+    --chart-muted: #4A4848;
+  }
+}
+
+/* Explicit dark. Wins in the other direction. */
+:root[data-theme="dark"] {
+  --bg-page: #111111;
+  --bg-raised: #1A1919;
+  --bg-sunken: #232222;
+  --bg-subtle: #232222;
+  --bg-subtle-hover: #2A2929;
+  --bg-subtle-active: #323131;
+  --border: #3B3A3A;
+  --border-strong: #4A4848;
+  --bg-solid: #706D6D;
+  --text-on-solid: #FFFFFF;
+  --bg-solid-hover: #7E7B7B;
+  --text-muted: #B6B3B3;
+  --text-primary: #EEEEEE;
+  --bg-brand-subtle: #3C130E;
+  --bg-brand-subtle-hover: #530D08;
+  --bg-brand-subtle-active: #64130D;
+  --border-brand: #752119;
+  --border-brand-strong: #8E3228;
+  --bg-brand-solid: #E1261C;
+  --text-on-brand-solid: #FFFFFF;
+  --bg-brand-solid-hover: #D10504;
+  --text-brand: #FF8E7C;
+  --text-brand-strong: #FFD1C9;
+  --bg-success-subtle: #092E1D;
+  --border-success: #005B37;
+  --bg-success-solid: #00814F;
+  --text-on-success-solid: #FFFFFF;
+  --text-success: #64D199;
+  --bg-info-subtle: #0D2847;
+  --border-info: #104D87;
+  --bg-info-solid: #0090FF;
+  --text-on-info-solid: #241E1E;
+  --text-info: #70B8FF;
+  --bg-warning-subtle: #302008;
+  --border-warning: #5C3D05;
+  --bg-warning-solid: #FFC53D;
+  --text-on-warning-solid: #241E1E;
+  --text-warning: #FFCA16;
+  --bg-danger-subtle: #3B1219;
+  --border-danger: #72232D;
+  --bg-danger-solid: #EC5D5E;
+  --text-on-danger-solid: #241E1E;
+  --text-danger: #FF9592;
+  --text-up: #64D199;
+  --bg-up-subtle: #0A130E;
+  --border-up: #005B37;
+  --text-down: #E5484D;
+  --bg-down-subtle: #191111;
+  --border-down: #72232D;
+  --text-flat: #B6B3B3;
+  --bg-flat-subtle: #232222;
+  --border-flat: #3B3A3A;
+  --flash-up: rgba(100, 209, 153, 0.20);
+  --flash-down: rgba(229, 72, 77, 0.20);
+  --chart-1: #0095A0;
+  --chart-2: #40CBFF;
+  --chart-3: #545CBD;
+  --chart-4: #51A2F8;
+  --chart-5: #00B3C0;
+  --chart-6: #3386D9;
+  --chart-seq-1: #002E59;
+  --chart-seq-2: #1E4976;
+  --chart-seq-3: #3A6695;
+  --chart-seq-4: #5783B5;
+  --chart-seq-5: #75A2D5;
+  --chart-seq-6: #93C2F6;
+  --chart-seq-7: #C7E1FF;
+  --chart-div-1: #FF958D;
+  --chart-div-2: #C8635D;
+  --chart-div-3: #8F4340;
+  --chart-div-4: #2A2929;
+  --chart-div-5: #1F6B52;
+  --chart-div-6: #2B9D67;
+  --chart-div-7: #66D097;
+  --chart-muted: #4A4848;
+}
+
+/* Opt-in market pair with CVD-min 16.5 instead of 6.7. The down colour
+   reads as oxblood rather than red — that is the cost of the separation. */
+:root[data-market-contrast="high"] {
+  --text-up: #00814F;
+  --text-down: #641723;
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-market-contrast="high"]:not([data-theme="light"]) {
+    --text-up: #9CF7C5;
+    --text-down: #E5484D;
+  }
+}
+:root[data-theme="dark"][data-market-contrast="high"] {
+  --text-up: #9CF7C5;
+  --text-down: #E5484D;
+}
+
+/* Numeric columns. Set on the column, never on the value. */
+.afex-num, [data-numeric] {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums lining-nums;
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The flash goes; the value and the glyph do not. */
+  :root { --flash-up: transparent; --flash-down: transparent; }
+}

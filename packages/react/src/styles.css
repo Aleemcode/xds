@@ -1,0 +1,124 @@
+/* xDS component styles. Every value here is a token reference — there are no
+   literals. That is the contract: when the moodboard changes the radius voice
+   or the density character, this file does not change at all. */
+
+.xds-btn{
+  font-family:var(--font-sans); font-size:var(--text-sm-size); line-height:1;
+  font-weight:var(--weight-medium); letter-spacing:var(--tracking-normal);
+  display:inline-flex; align-items:center; justify-content:center; gap:var(--space-2);
+  padding:var(--space-3) var(--space-4); min-height:var(--touch-min);
+  border-radius:var(--radius-md); border:1px solid transparent; cursor:pointer;
+  transition:background-color .12s ease, border-color .12s ease;
+}
+.xds-btn:disabled{opacity:.45; cursor:not-allowed}
+.xds-btn:focus-visible{outline:2px solid var(--bg-brand-solid); outline-offset:2px}
+.xds-btn--primary{background:var(--bg-brand-solid); color:var(--text-on-brand-solid); border-color:var(--bg-brand-solid)}
+.xds-btn--primary:not(:disabled):hover{background:var(--bg-brand-solid-hover); border-color:var(--bg-brand-solid-hover)}
+.xds-btn--secondary{background:var(--bg-raised); color:var(--text-primary); border-color:var(--border-strong)}
+.xds-btn--secondary:not(:disabled):hover{background:var(--bg-subtle-hover)}
+.xds-btn--ghost{background:transparent; color:var(--text-muted)}
+.xds-btn--ghost:not(:disabled):hover{background:var(--bg-subtle); color:var(--text-primary)}
+.xds-btn--danger{background:var(--bg-danger-solid); color:var(--text-on-danger-solid); border-color:var(--bg-danger-solid)}
+.xds-btn--sm{min-height:auto; padding:var(--space-2) var(--space-3); font-size:var(--text-xs-size)}
+
+.xds-badge{
+  font-family:var(--font-mono); font-size:var(--text-2xs-size); line-height:1.4;
+  letter-spacing:var(--tracking-wide); text-transform:uppercase;
+  display:inline-flex; align-items:center; gap:var(--space-1);
+  padding:var(--space-1) var(--space-2); border-radius:var(--radius-sm); border:1px solid;
+}
+.xds-badge--neutral{color:var(--text-muted); background:var(--bg-subtle); border-color:var(--border)}
+.xds-badge--brand{color:var(--text-brand); background:var(--bg-brand-subtle); border-color:var(--border-brand)}
+.xds-badge--success{color:var(--text-success); background:var(--bg-success-subtle); border-color:var(--border-success)}
+.xds-badge--info{color:var(--text-info); background:var(--bg-info-subtle); border-color:var(--border-info)}
+.xds-badge--warning{color:var(--text-warning); background:var(--bg-warning-subtle); border-color:var(--border-warning)}
+.xds-badge--danger{color:var(--text-danger); background:var(--bg-danger-subtle); border-color:var(--border-danger)}
+
+.xds-field{display:flex; flex-direction:column; gap:var(--space-2)}
+.xds-label{font-family:var(--font-sans); font-size:var(--text-sm-size); font-weight:var(--weight-medium); color:var(--text-primary)}
+.xds-input{
+  font-family:var(--font-sans); font-size:var(--text-base-size); color:var(--text-primary);
+  background:var(--bg-raised); border:1px solid var(--border-strong);
+  border-radius:var(--radius-md); padding:var(--space-3) var(--space-4); min-height:var(--touch-min);
+  transition:border-color .12s ease;
+}
+.xds-input::placeholder{color:var(--text-muted); opacity:.75}
+.xds-input:focus-visible{outline:2px solid var(--bg-brand-solid); outline-offset:1px; border-color:var(--bg-brand-solid)}
+.xds-input[data-invalid="true"]{border-color:var(--bg-danger-solid)}
+.xds-input[data-numeric="true"]{font-family:var(--font-numeric); font-variant-numeric:tabular-nums lining-nums; text-align:right}
+.xds-hint{font-family:var(--font-sans); font-size:var(--text-xs-size); color:var(--text-muted)}
+.xds-hint--error{color:var(--text-danger)}
+
+.xds-toast{
+  font-family:var(--font-sans); font-size:var(--text-sm-size); color:var(--text-primary);
+  display:flex; gap:var(--space-3); align-items:flex-start;
+  background:var(--bg-raised); border:1px solid var(--border-strong);
+  border-left-width:3px; border-radius:var(--radius-md);
+  padding:var(--space-4); max-width:26rem;
+}
+.xds-toast--success{border-left-color:var(--bg-success-solid)}
+.xds-toast--info{border-left-color:var(--bg-info-solid)}
+.xds-toast--warning{border-left-color:var(--bg-warning-solid)}
+.xds-toast--danger{border-left-color:var(--bg-danger-solid)}
+.xds-toast__body{flex:1; min-width:0}
+.xds-toast__title{font-weight:var(--weight-semibold); margin:0 0 var(--space-1)}
+.xds-toast__msg{margin:0; color:var(--text-muted); font-size:var(--text-xs-size)}
+
+/* Change — the market indicator. Colour is never alone: the glyph and the
+   explicit sign are rendered unconditionally and cannot be switched off. */
+.xds-change{
+  font-family:var(--font-numeric); font-variant-numeric:tabular-nums lining-nums;
+  font-size:var(--text-sm-size); display:inline-flex; align-items:baseline; gap:var(--space-1);
+  white-space:nowrap;
+}
+.xds-change--up{color:var(--text-up)}
+.xds-change--down{color:var(--text-down)}
+.xds-change--flat{color:var(--text-flat)}
+.xds-change__glyph{font-size:.8em; line-height:1}
+
+.xds-table-wrap{position:relative; border:1px solid var(--border-strong); border-radius:var(--radius-md);
+  background:var(--bg-raised); overflow:hidden; display:flex; flex-direction:column}
+.xds-table-wrap[data-expanded="true"]{position:fixed; inset:var(--space-3); z-index:9999; border-radius:var(--radius-lg)}
+.xds-table-bar{display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap;
+  padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--border); background:var(--bg-sunken)}
+.xds-table-prov{font-family:var(--font-mono); font-size:var(--text-2xs-size);
+  letter-spacing:var(--tracking-wide); color:var(--text-muted); text-transform:uppercase}
+.xds-table-spacer{flex:1}
+.xds-table-scroll{overflow:auto; flex:1; min-height:0}
+table.xds-table{border-collapse:separate; border-spacing:0; width:100%;
+  font-family:var(--font-sans); font-size:var(--row-comfortable-size)}
+.xds-table[data-density="compact"]{font-size:var(--row-compact-size)}
+.xds-table[data-density="dense"]{font-size:var(--row-dense-size)}
+.xds-table th, .xds-table td{
+  padding:var(--row-comfortable-block) var(--row-comfortable-inline);
+  border-bottom:1px solid var(--border); text-align:left; background:var(--bg-raised);
+}
+.xds-table[data-density="compact"] th, .xds-table[data-density="compact"] td{
+  padding:var(--row-compact-block) var(--row-compact-inline)}
+.xds-table[data-density="dense"] th, .xds-table[data-density="dense"] td{
+  padding:var(--row-dense-block) var(--row-dense-inline)}
+.xds-table thead th{
+  position:sticky; top:0; z-index:3; background:var(--bg-sunken);
+  font-family:var(--font-mono); font-size:var(--text-2xs-size); font-weight:var(--weight-medium);
+  letter-spacing:var(--tracking-wide); text-transform:uppercase; color:var(--text-muted);
+  white-space:nowrap; cursor:pointer; user-select:none;
+}
+.xds-table thead th[aria-sort]:hover{color:var(--text-primary)}
+.xds-table .xds-pin{position:sticky; left:0; z-index:2}
+.xds-table thead .xds-pin{z-index:4; background:var(--bg-sunken)}
+.xds-table-wrap[data-pinned="true"] .xds-pin::after{
+  content:""; position:absolute; top:0; right:0; bottom:0; width:10px;
+  transform:translateX(100%); pointer-events:none;
+  background:linear-gradient(90deg, rgba(0,0,0,.10), rgba(0,0,0,0));
+}
+.xds-table td.xds-num{font-family:var(--font-numeric);
+  font-variant-numeric:tabular-nums lining-nums; text-align:right; white-space:nowrap}
+.xds-table tbody tr:hover td{background:var(--bg-subtle)}
+.xds-table tbody tr:hover .xds-pin{background:var(--bg-subtle)}
+.xds-table td[data-state="missing"], .xds-table td[data-state="notcovered"]{color:var(--text-muted)}
+.xds-table td[data-flash="up"]{background:var(--flash-up) !important}
+.xds-table td[data-flash="down"]{background:var(--flash-down) !important}
+.xds-table-note{font-family:var(--font-sans); font-size:var(--text-2xs-size); color:var(--text-muted);
+  display:block; margin-top:var(--space-1)}
+.xds-locked{display:inline-flex; align-items:center; gap:var(--space-2)}
+.xds-locked__value{filter:blur(4px); user-select:none; opacity:.55}
