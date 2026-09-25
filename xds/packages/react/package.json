@@ -1,0 +1,24 @@
+{
+  "name": "@afex/xds-react",
+  "version": "1.0.0",
+  "description": "xDS React components — built on @afex/xds-tokens.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/styles.css",
+    "./icons": "./src/icons.tsx"
+  },
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@afex/xds-tokens": "1.0.0",
+    "iconsax-reactjs": "0.0.8"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,29 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Regenerate tokens
+        run: npm run tokens
+
+      # tokens.css is generated. If it differs from what the config produces,
+      # someone hand-edited it — which is the one thing that must not happen.
+      - name: Fail if tokens.css is stale or hand-edited
+        run: git diff --exit-code packages/tokens/tokens.css
+
+      - name: Contrast and colour-vision audit
+        run: npm run audit -- --quiet
+
+      - name: Build the docs site
+        run: npm run build -w @afex/xds-docs

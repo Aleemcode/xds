@@ -1,0 +1,16 @@
+{
+  "name": "@afex/xds-eval",
+  "version": "1.0.0",
+  "description": "xDS conformance check — the rules a machine can decide, and the rubric for the ones it cannot.",
+  "type": "module",
+  "bin": { "xds-eval": "./eval.mjs" },
+  "exports": {
+    ".": "./rules.mjs",
+    "./rules": "./rules.mjs"
+  },
+  "files": ["eval.mjs", "rules.mjs", "AGENTS.md"],
+  "scripts": {
+    "eval": "node eval.mjs .."
+  },
+  "license": "UNLICENSED"
+}
